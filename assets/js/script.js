@@ -64,19 +64,40 @@ addToTheSecond();
         Scrivi una funzione che aggiunga un paragrafo al primo div
      */
 
-const addParagraph = function () {};
+const addParagraph = function () {
+  const addP = document.getElementsByTagName("div")[0];
+  const createParagraph = document.createElement("p");
+  createParagraph.innerHTML = "Sono stato appena aggiunto!";
+  createParagraph.style.color = "blue";
+
+  addP.appendChild(createParagraph);
+};
+
+addParagraph();
 
 /* ESERCIZIO 7
         Scrivi una funzione che faccia scomparire la prima lista non ordinata
      */
 
-const hideFirstUl = function () {};
+const hideFirstUl = function () {
+  const hideList = document.getElementById("firstList");
+  hideList.style.display = "none";
+};
+
+hideFirstUl();
 
 /* ESERCIZIO 8 
         Scrivi una funzione che renda verde il background di ogni lista non ordinata
        */
 
-const paintItGreen = function () {};
+const paintItGreen = function () {
+  const switchBG = document.querySelectorAll("div ul");
+  switchBG.forEach((ul) => {
+    ul.style.backgroundColor = "green";
+  });
+};
+
+paintItGreen();
 
 /* ESERCIZIO 9
         Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
@@ -88,14 +109,37 @@ const makeItClickable = function () {};
         Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
        */
 
-const revealFooterLink = function () {};
+const revealFooterLink = function () {
+  const footerLink = document.getElementsByTagName("footer")[0];
+};
+
+revealFooterLink();
 
 /* ESERCIZIO 11
         Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
         La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
      */
 
-const generateTable = function () {};
+const generateTable = function () {
+  const table = document.getElementById("tableArea");
+
+  const containerTable = () => {
+    const imgTable = document.createElement("img");
+    const nameProductTable = document.createElement("p");
+    const quantityTable = document.createElement("p");
+    const priceTable = document.createElement("p");
+
+    imgTable.src =
+      "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents";
+    nameProductTable.innerHTML = "name product";
+    quantityTable.innerHTML = "quantity";
+    priceTable.innerHTML = "price";
+  };
+
+  table.appendChild(containerTable);
+};
+
+generateTable();
 
 /* ESERCIZIO 12
         Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
