@@ -25,10 +25,10 @@ addClassToTitle();
        */
 
 const changePcontent = function () {
-  const changeContent = document.getElementsByTagName("p")[0];
-  changeContent.style.color = "red";
-  changeContent.innerHTML =
-    "Questo testo è un nuovo placeholder per gli esercizi";
+  const changeContent = document.querySelectorAll("div p");
+  changeContent.forEach((p) => {
+    p.innerHTML = " Questo testo è un nuovo placeholder per gli esercizi ";
+  });
 };
 
 changePcontent();
@@ -81,6 +81,7 @@ addParagraph();
 
 const hideFirstUl = function () {
   const hideList = document.getElementById("firstList");
+  //   hideFirstUl.remove();
   hideList.style.display = "none";
 };
 
@@ -110,7 +111,12 @@ const makeItClickable = function () {};
        */
 
 const revealFooterLink = function () {
-  const footerLink = document.getElementsByTagName("footer")[0];
+  const footerLink = document.querySelector("footer");
+
+  footerLink.onclick = () => {
+    const link = document.querySelector("footer a");
+    alert(link);
+  };
 };
 
 revealFooterLink();
@@ -122,21 +128,6 @@ revealFooterLink();
 
 const generateTable = function () {
   const table = document.getElementById("tableArea");
-
-  const containerTable = () => {
-    const imgTable = document.createElement("img");
-    const nameProductTable = document.createElement("p");
-    const quantityTable = document.createElement("p");
-    const priceTable = document.createElement("p");
-
-    imgTable.src =
-      "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents";
-    nameProductTable.innerHTML = "name product";
-    quantityTable.innerHTML = "quantity";
-    priceTable.innerHTML = "price";
-  };
-
-  table.appendChild(containerTable);
 };
 
 generateTable();
@@ -157,4 +148,19 @@ const hideAllImages = function () {};
        Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
      */
 
-const changeColorWithRandom = function () {};
+const changeColorWithRandom = function () {
+  const switchColor = document.getElementById("changeMyColor");
+
+  switchColor.onclick = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    const randomColor = `rgb(${r},${g},${b})`;
+    switchColor.style.cursor = "pointer";
+    switchColor.style.color = randomColor;
+  };
+};
+
+changeColorWithRandom();
+
